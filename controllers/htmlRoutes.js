@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const path = require("path");
+const { isLoggedIn, hasProfile } = require("../middlewares/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -9,7 +10,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/profile", async (req, res) => {
+router.get("/profile", hasProfile, async (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "..", "views", "DirectoryForm.html"));
   } catch (err) {
@@ -18,7 +19,7 @@ router.get("/profile", async (req, res) => {
   }
 });
 
-router.get("/directory", async (req, res) => {
+router.get("/directory", isLoggedIn, async (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "..", "views", "Directory.html"));
   } catch (err) {
