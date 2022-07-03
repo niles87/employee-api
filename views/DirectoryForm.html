@@ -14,11 +14,7 @@
   </head>
   <body>
     <main class="form-signin">
-      <form
-        action="/api/directory"
-        method="post"
-        enctype="multipart/form-data"
-      >
+      <form action="/api/directory" method="post" enctype="multipart/form-data">
         <div class="text-center">
           <img
             class="mb-4"
@@ -90,15 +86,23 @@
           required
         />
 
-       
+        <label for="avatar"
+          >Profile Picture <span class="small-text">(under 1MB)</span></label
+        >
+        <input
+          type="file"
+          name="avatar"
+          id="avatar"
+          class="form-control"
+          required
+        />
 
         <div class="submit">
           <button class="btn btn-lg btn-black" type="submit">Submit</button>
-          
         </div>
       </form>
     </main>
-    
+
     <script src="/scripts/form.js"></script>
   </body>
 </html>
