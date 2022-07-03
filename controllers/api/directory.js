@@ -1,8 +1,9 @@
-const router = require('express').Router();
-require('dotenv').config();
-const { Person, Address } = require('../../models');
+const router = require("express").Router();
+require("dotenv").config();
+const passport = require("passport");
+const { Person, Address } = require("../../models");
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const { rows } = await Person.getAll();
 
@@ -13,34 +14,39 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const newPersonEnrty = {
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      phone: req.body.phone,
-      github_id: '0123456789'
-    };
-    
-    const personsAddress = {
-      street: req.body.street,
-      city: req.body.city,
-      state: req.body.state,
-    };
+router.post(
+  "/",
+  // passport.authenticate("github", { failureRedirect: "/" }),
+  async (req, res) => {
+    try {
+      const newPersonEntry = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        phone: req.body.phone,
+        github_id: req.user.github_id,
+      };
 
-    const { rows } = await Person.create(newPersonEnrty);
+      const personsAddress = {
+        street: req.body.street,
+        city: req.body.city,
+        state: req.body.state,
+      };
 
-    await Address.create({
-      ...personsAddress,
-      person_id: rows[0].id,
-    });
+      const { rows } = await Person.create(newPersonEntry);
 
-    res.status(200).json({ message: 'Success' });
-  } catch (err) {
-    console.error(err);
-    res.status(500).end();
+      await Address.create({
+        ...personsAddress,
+        person_id: rows[0].id,
+      });
+
+      req.login(newPersonEntry, () => {
+        res.status(200).json({ message: "Success" });
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).end();
+    }
   }
-});
-
+);
 
 module.exports = router;
