@@ -1,0 +1,78 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #99d19c;
+}
+
+label {
+  padding-left: 8px;
+}
+
+.header {
+  margin: auto;
+  text-align: center;
+}
+
+.card {
+  margin: 20px;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.card-bold {
+  font-weight: 600;
+}
+.small-text {
+  font-size: 12px;
+}
+.btn-black {
+  width: 100%;
+  background-color: rgb(0, 5, 1);
+  color: white;
+}
+
+.card-img-top {
+  width: 100%;
+  max-height: 15vw;
+  object-fit: cover;
+}
+
+.img-container {
+  overflow: hidden;
+}
+
+.img-holder {
+  width: 100%;
+}
+
+.img-btn {
+  fill: white;
+}
+
+.submit {
+  width: 400px;
+  margin: auto;
+  padding: 18px;
+  text-align: center;
+}
