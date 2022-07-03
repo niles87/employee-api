@@ -4,7 +4,7 @@
     "last_name": "Schulz",
     "phone": "1234567899",
     "github_id": "0000001",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "North Gravel Drive",
     "city": "Jacksonville",
     "state": "FL"
@@ -14,7 +14,7 @@
     "last_name": "Joy",
     "phone": "9987654321",
     "github_id": "0000002",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "Golden Road",
     "city": "Berkeley",
     "state": "CA"
@@ -24,7 +24,7 @@
     "last_name": "Witherspoon",
     "phone": "1112224444",
     "github_id": "0000003",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "University Drive",
     "city": "Tempe",
     "state": "AZ"
@@ -34,7 +34,7 @@
     "last_name": "Favre",
     "phone": "2221113333",
     "github_id": "0000004",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "Park Avenue",
     "city": "Albany",
     "state": "NY"
@@ -44,7 +44,7 @@
     "last_name": "Lee",
     "phone": "5554442222",
     "github_id": "0000005",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "East Street",
     "city": "Reno",
     "state": "NV"
@@ -54,7 +54,7 @@
     "last_name": "Hamilton",
     "phone": "9990008888",
     "github_id": "0000005",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "Mesa Lane",
     "city": "Santa Fe",
     "state": "NM"
@@ -64,7 +64,7 @@
     "last_name": "Winston",
     "phone": "5556667777",
     "github_id": "0000006",
-    "avatar": "\\images\\thumbnails\\no-thumbnail-image-placeholder.jpg",
+    "avatar": "/images/thumbnails/no-thumbnail-image-placeholder.jpg",
     "street": "Elk Road",
     "city": "Logan",
     "state": "UT"
