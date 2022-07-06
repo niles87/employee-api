@@ -1,6 +1,7 @@
-require('dotenv').config();
-const { Person, Address } = require('../models');
-const SeedData = require('./seedData.json');
+require("dotenv").config();
+const { Person, Address } = require("../models");
+const SeedData = require("./seedData.json");
+const { hash, encrypt } = require("../utils/crypto");
 
 const seeds = async (data) => {
   for (let i = 0; i < data.length; i++) {
@@ -11,22 +12,23 @@ const seeds = async (data) => {
     personalData.first_name = data[i].first_name;
     personalData.last_name = data[i].last_name;
     personalData.phone = data[i].phone;
-    personalData.github_id = data[i].github_id;
-    
-    // Address data 
-    addressData.street = data[i].street;
-    addressData.city = data[i].city;
-    addressData.state = data[i].state;
+    personalData.github_id = hash(data[i].github_id);
+    personalData.avatar = data[i].avatar;
+
+    // Address data
+    addressData.street = encrypt(data[i].street);
+    addressData.city = encrypt(data[i].city);
+    addressData.state = encrypt(data[i].state);
 
     const { rows } = await Person.create(personalData);
-  
+
     await Address.create({
       ...addressData,
       person_id: rows[0].id,
     });
   }
 
-  console.log('seeded');
+  console.log("seeded");
   process.exit(0);
 };
 
