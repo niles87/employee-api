@@ -2,6 +2,7 @@ require("dotenv").config();
 const passport = require("passport");
 const GithubStrategy = require("passport-github2");
 const { Person } = require("../models");
+const { hash } = require("../utils/crypto");
 
 passport.serializeUser((user, done) => {
   done(null, user);
@@ -20,14 +21,15 @@ passport.use(
     },
     async function (accessToken, refreshToken, profile, done) {
       try {
+        const hashedId = hash(profile.id.toString());
         const { rowCount, rows } = Person.findUser({
-          github_id: profile.id.toString(),
+          github_id: hashedId,
         });
 
         if (rowCount > 0) {
           return done(null, rows[0]);
         } else {
-          return done(null, { github_id: profile.id.toString() });
+          return done(null, { github_id: hashedId });
         }
       } catch (err) {
         console.error(err);
